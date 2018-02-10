@@ -66,6 +66,13 @@ public class OI {
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("driveManual", new driveManual());
+<<<<<<< HEAD
+        SmartDashboard.putData("driveforward", new driveforward());
+        SmartDashboard.putData("bottomElevator", new bottomElevator());
+        SmartDashboard.putData("topElevator", new topElevator());
+        SmartDashboard.putData("midwayElevator", new midwayElevator());
+=======
+>>>>>>> master
         SmartDashboard.putData("setRampSpeed: rampSpeed1", new setRampSpeed(1));
         SmartDashboard.putData("setRampSpeed: rampSpeed2", new setRampSpeed(2));
         SmartDashboard.putData("setRampSpeed: rampSpeed0_5", new setRampSpeed(0.5));
