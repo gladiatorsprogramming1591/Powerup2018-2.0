@@ -13,7 +13,7 @@ package org.usfirst.frc1591.Powerup.commands;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc1591.Powerup.Robot;
-import org.usfirst.frc1591.Powerup.subsystems.pully;
+import org.usfirst.frc1591.Powerup.subsystems.Lift;
 
 /**
  *
