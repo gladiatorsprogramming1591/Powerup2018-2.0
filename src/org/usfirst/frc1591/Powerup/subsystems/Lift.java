@@ -11,6 +11,7 @@
 
 package org.usfirst.frc1591.Powerup.subsystems;
 
+import org.usfirst.frc1591.Powerup.Robot;
 import org.usfirst.frc1591.Powerup.RobotMap;
 import org.usfirst.frc1591.Powerup.commands.*;
 
@@ -63,14 +64,18 @@ public class Lift extends Subsystem {
     }
 
     public void move(double y, double deg) {
-    	lift.set(y);
-    	
-    	if (deg >= 100 && deg <= 200) { //placeholder values
-    		lift.set(0);
+    	if (Robot.oi.driveStick.getRawButton(1)) {
+    		lift.set(y);
     	}
     	
-    	if (deg >= 300 && deg <= 400) { //placeholder values
-    		lift.set(0);
+    	if (Robot.oi.driveStick.getRawButton(2)) {
+    		if (deg >= 100 && deg <= 200) { //placeholder values
+    			lift.set(0);
+    		}
+    		
+    		if (deg >= 300 && deg <= 400) { //placeholder values
+    			lift.set(0);
+    		}
     	}
     }
 }
