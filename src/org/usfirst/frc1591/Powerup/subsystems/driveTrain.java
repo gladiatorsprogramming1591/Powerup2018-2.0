@@ -11,8 +11,6 @@
 
 package org.usfirst.frc1591.Powerup.subsystems;
 
-import java.util.Date;
-
 import org.usfirst.frc1591.Powerup.RobotMap;
 import org.usfirst.frc1591.Powerup.commands.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -102,7 +100,7 @@ public class driveTrain extends Subsystem {
     	}
     		
     	
-    	robotDrive.arcadeDrive(y, powerY,);
+    	robotDrive.arcadeDrive(x, powerY);
     	lastTimeDriveTrainUpdated = currentTimeMS;
     	
     	SmartDashboard.putNumber("Ramp", ramp);
