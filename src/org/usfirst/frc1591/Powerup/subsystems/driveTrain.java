@@ -102,7 +102,7 @@ public class driveTrain extends Subsystem {
     	}
     		
     	
-    	robotDrive.arcadeDrive(y, powerY,);
+    	robotDrive.arcadeDrive(y, powerY);
     	lastTimeDriveTrainUpdated = currentTimeMS;
     	
     	SmartDashboard.putNumber("Ramp", ramp);
