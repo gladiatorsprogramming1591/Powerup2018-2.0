@@ -78,45 +78,51 @@ public class driveTrain extends Subsystem {
     	rampSpeed = rs;
     }
     
-    public void drive (double x, double y) {
+    public void drive (double joystickX, double joystickY) {
     	//Ramp based on time
     	long currentTimeMS = System.currentTimeMillis();
-    	double deltaTimeSec = (double)(currentTimeMS - lastTimeDriveTrainUpdated) / 1000.0;
+    	double deltaTimeSec = (currentTimeMS - lastTimeDriveTrainUpdated) / 1000.0;
     	double ramp = rampSpeed * deltaTimeSec;
-        //To create a dead zone in the middle of the joy stick. 
-    	if (x < .03 && x > -.03) {
-    		x = 0;
-    	}
-    	if (y < .03 && y > -.03) {
-    		y = 0;
-    	}
-    	
-    	//Make the wheel speed up/slow down. Needed on y axis not x.
-    	if (powerY < y) {
-	    	powerY += ramp;
-    	}
-    	if (powerY > y) {
-    		powerY -= ramp;
-    	}
-    		
-    	
-    	robotDrive.arcadeDrive(x, powerY);
     	lastTimeDriveTrainUpdated = currentTimeMS;
+
+    	final double DEAD_ZONE_THRESHOLD = 0.03;
+    
+        //To create a dead zone in the middle of the joy stick. 
+    	if (Math.abs(joystickX) < DEAD_ZONE_THRESHOLD) {
+    		joystickX = 0;
+    	}
+    	if (Math.abs(joystickY) < DEAD_ZONE_THRESHOLD) {
+    		joystickY = 0;
+    	}
+
+		//Make the robot stop
+    	if (joystickY == 0) {
+    		powerY = 0;
+    	}
+    	//make the robot move
+    	else {
+	    	//Creates a dead zone while the joystick is being held in a specific position
+	    	if (Math.abs(powerY - joystickY) > DEAD_ZONE_THRESHOLD) {
+	    		//Make the wheel speed up/slow down. Needed on y axis not x.
+	    		if (powerY < joystickY) {
+	    			powerY += ramp;
+	    		}
+	    		else if (powerY > joystickY) {
+	    			powerY -= ramp;
+	    		}
+	    	}
+    	}
+    	//communicate to motor controller
+    	robotDrive.arcadeDrive(joystickX, powerY);
     	
+    	//put variables on shuffleboard
     	SmartDashboard.putNumber("Ramp", ramp);
     	SmartDashboard.putNumber("powerY", powerY);
-    	
+    
     	if ((numIter++ % 20) == 0) {
     		System.out.println("Ramp " + ramp);
     		System.out.println("powerY" + powerY);
     		System.out.println("deltaTime" + deltaTimeSec);
-    	
-    	
     	}
-    	
     }
-    
-//    public void driveLowGear(double x, double y) {
-//    	robotDrive.arcadeDrive(x / 3, y / 3);
-//    }
 }

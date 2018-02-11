@@ -62,17 +62,19 @@ public class Lift extends Subsystem {
     public void periodic() {
     	SmartDashboard.putNumber("Potentiometer", deg);
     }
-
+    
     public void move(double y, double deg) {
     	if (Robot.oi.driveStick.getRawButton(1)) {
     		liftTalon.set(y);
     	}
     	
     	if (Robot.oi.driveStick.getRawButton(2)) {
-    		if (deg >= 100 && deg <= 200) { //placeholder values
+    		// Bottom stop
+    		if ((deg >= 100) && (deg <= 200)) { //placeholder values
     			liftTalon.set(0);
     		}
     		
+    		// Top stop
     		if (deg >= 300 && deg <= 400) { //placeholder values
     			liftTalon.set(0);
     		}
