@@ -1,5 +1,3 @@
 
-*.class
+bin/
 *.java~
-*.java~
-src/org/usfirst/frc1591/Powerup/OI.java~
