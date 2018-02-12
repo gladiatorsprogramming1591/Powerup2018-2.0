@@ -55,7 +55,6 @@ public class Lift extends Subsystem {
      
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
-    	//********THIS NEEDS A DEFAULT COMMMAND********
     }
 
     @Override
@@ -63,21 +62,15 @@ public class Lift extends Subsystem {
     	SmartDashboard.putNumber("Potentiometer", deg);
     }
     
-    public void move(double y, double deg) {
+    //make the winch spool in to pull the robot up
+    public void spoolIn() {
+    	//when A is pressed, the winch starts to spool in
     	if (Robot.oi.driveStick.getRawButton(1)) {
-    		liftTalon.set(y);
+    		liftTalon.set(1);//set to correct direction at full power PLACEHOLDER
     	}
-    	
-    	if (Robot.oi.driveStick.getRawButton(2)) {
-    		// Bottom stop
-    		if ((deg >= 100) && (deg <= 200)) { //placeholder values
-    			liftTalon.set(0);
-    		}
-    		
-    		// Top stop
-    		if (deg >= 300 && deg <= 400) { //placeholder values
-    			liftTalon.set(0);
-    		}
+    	//when the robot gets 12 in above the ground, stop the winch
+    	if (deg == 360) { //PLACEHOLDER
+    		liftTalon.set(0);
     	}
     }
 }
