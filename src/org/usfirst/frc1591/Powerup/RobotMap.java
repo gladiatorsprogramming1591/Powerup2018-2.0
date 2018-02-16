@@ -34,7 +34,7 @@ public class RobotMap {
     public static WPI_TalonSRX driveTrainrightTalon;
     public static RobotDrive driveTrainrobotDrive;
     public static WPI_TalonSRX liftliftTalon;
-    public static DigitalInput lifthightReachedLimit;
+    public static DigitalInput liftheightReachedLimit;
     public static SpeedController clampclampSpark;
     public static DigitalInput clampclampOpenLimit;
     public static DigitalInput clampclampClosedLimit;
@@ -65,8 +65,8 @@ public class RobotMap {
         liftliftTalon = new WPI_TalonSRX(3);
         
         
-        lifthightReachedLimit = new DigitalInput(0);
-        LiveWindow.addSensor("Lift", "hightReachedLimit", lifthightReachedLimit);
+        liftheightReachedLimit = new DigitalInput(0);
+        LiveWindow.addSensor("Lift", "heightReachedLimit", liftheightReachedLimit);
         
         clampclampSpark = new Spark(1);
         LiveWindow.addActuator("clamp", "clampSpark", (Spark) clampclampSpark);
@@ -77,7 +77,7 @@ public class RobotMap {
         clampclampClosedLimit = new DigitalInput(2);
         LiveWindow.addSensor("clamp", "clampClosedLimit", clampclampClosedLimit);
         
-        elevatorelevatorSpark = new Spark(2);
+        elevatorelevatorSpark = new Spark(0);
         LiveWindow.addActuator("elevator", "elevatorSpark", (Spark) elevatorelevatorSpark);
         elevatorelevatorSpark.setInverted(false);
         elevatorelevatorUpperLimit = new DigitalInput(3);

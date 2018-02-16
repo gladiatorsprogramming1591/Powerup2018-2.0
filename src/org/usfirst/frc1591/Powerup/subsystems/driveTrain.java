@@ -119,10 +119,10 @@ public class driveTrain extends Subsystem {
     	SmartDashboard.putNumber("Ramp", ramp);
     	SmartDashboard.putNumber("powerY", powerY);
     
-    	if ((numIter++ % 20) == 0) {
-    		System.out.println("Ramp " + ramp);
-    		System.out.println("powerY" + powerY);
-    		System.out.println("deltaTime" + deltaTimeSec);
-    	}
+//    	if ((numIter++ % 20) == 0) {
+//    		System.out.println("Ramp " + ramp);
+//    		System.out.println("powerY" + powerY);
+//    		System.out.println("deltaTime" + deltaTimeSec);
+//    	}
     }
 }
