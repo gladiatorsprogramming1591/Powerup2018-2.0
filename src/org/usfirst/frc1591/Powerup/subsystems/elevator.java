@@ -75,7 +75,15 @@ public class elevator extends Subsystem {
     	SmartDashboard.putData("elevatorUpperLimit", elevatorUpperLimit);
         SmartDashboard.putData("elevatorLowerLimit", elevatorLowerLimit);
     	
-    	//Ramp based on time
+//    	//Checking limit switches
+//        if ((elevatorUpperLimit.get()==true) && (joystickY > 0)) {
+//        	elevatorSpark.set(0);
+//        }
+//        if ((elevatorLowerLimit.get()==true) && (joystickY < 0)){
+//        	elevatorSpark.set(0);
+//        }
+        
+        //Ramp based on time
     	long currentTimeMS = System.currentTimeMillis();
     	double deltaTimeSec = (currentTimeMS - lastTimeElevatorUpdated) / 1000.0;
     	double ramp = rampSpeed * deltaTimeSec;

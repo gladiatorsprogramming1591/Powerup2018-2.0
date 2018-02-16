@@ -64,7 +64,15 @@ public class clamp extends Subsystem {
         SmartDashboard.putData("clampOpenLimit", clampOpenLimit);
         SmartDashboard.putData("clampClosedLimit", clampClosedLimit);
     	
-    	clampSpark.set(speed);
+//    	//Checking limit switches
+//      if ((clampOpenLimit.get()==true) && (speed > 0)) {
+//      	clampSpark.set(0);
+//      }
+//      if ((clampClosedLimit.get()==true) && (speed < 0)){
+//      	clampSpark.set(0);
+//      }
+    	
+        clampSpark.set(speed);
     }
 
 }

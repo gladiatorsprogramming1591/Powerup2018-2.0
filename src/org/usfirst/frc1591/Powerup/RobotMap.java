@@ -35,6 +35,7 @@ public class RobotMap {
     public static RobotDrive driveTrainrobotDrive;
     public static WPI_TalonSRX liftliftTalon;
     public static DigitalInput liftheightReachedLimit;
+    public static DigitalInput liftreverseEnabledLimit;
     public static SpeedController clampclampSpark;
     public static DigitalInput clampclampOpenLimit;
     public static DigitalInput clampclampClosedLimit;
@@ -67,6 +68,9 @@ public class RobotMap {
         
         liftheightReachedLimit = new DigitalInput(0);
         LiveWindow.addSensor("Lift", "heightReachedLimit", liftheightReachedLimit);
+        
+        liftreverseEnabledLimit = new DigitalInput(9);
+        LiveWindow.addSensor("Lift", "reverseEnabledLimit", liftreverseEnabledLimit);
         
         clampclampSpark = new Spark(1);
         LiveWindow.addActuator("clamp", "clampSpark", (Spark) clampclampSpark);
