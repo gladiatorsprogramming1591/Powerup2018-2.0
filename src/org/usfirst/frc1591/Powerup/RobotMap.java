@@ -36,9 +36,9 @@ public class RobotMap {
     public static WPI_TalonSRX liftliftTalon;
     public static DigitalInput liftheightReachedLimit;
     public static DigitalInput liftreverseEnabledLimit;
-    public static SpeedController clampclampSpark;
-    public static DigitalInput clampclampOpenLimit;
-    public static DigitalInput clampclampClosedLimit;
+    public static SpeedController clawclawSpark;
+    public static DigitalInput clawclawOpenLimit;
+    public static DigitalInput clawclawClosedLimit;
     public static SpeedController elevatorelevatorSpark;
     public static DigitalInput elevatorelevatorUpperLimit;
     public static DigitalInput elevatorelevatorLowerLimit;
@@ -61,8 +61,7 @@ public class RobotMap {
         driveTrainrobotDrive.setExpiration(0.1);
         driveTrainrobotDrive.setSensitivity(0.5);
         driveTrainrobotDrive.setMaxOutput(1.0);
-
-        driveTrainrobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        driveTrainrobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
         liftliftTalon = new WPI_TalonSRX(3);
         
         
@@ -72,14 +71,14 @@ public class RobotMap {
         liftreverseEnabledLimit = new DigitalInput(9);
         LiveWindow.addSensor("Lift", "reverseEnabledLimit", liftreverseEnabledLimit);
         
-        clampclampSpark = new Spark(1);
-        LiveWindow.addActuator("clamp", "clampSpark", (Spark) clampclampSpark);
-        clampclampSpark.setInverted(false);
-        clampclampOpenLimit = new DigitalInput(1);
-        LiveWindow.addSensor("clamp", "clampOpenLimit", clampclampOpenLimit);
+        clawclawSpark = new Spark(1);
+        LiveWindow.addActuator("claw", "clawSpark", (Spark) clawclawSpark);
+        clawclawSpark.setInverted(false);
+        clawclawOpenLimit = new DigitalInput(1);
+        LiveWindow.addSensor("claw", "clawOpenLimit", clawclawOpenLimit);
         
-        clampclampClosedLimit = new DigitalInput(2);
-        LiveWindow.addSensor("clamp", "clampClosedLimit", clampclampClosedLimit);
+        clawclawClosedLimit = new DigitalInput(2);
+        LiveWindow.addSensor("claw", "clawClosedLimit", clawclawClosedLimit);
         
         elevatorelevatorSpark = new Spark(0);
         LiveWindow.addActuator("elevator", "elevatorSpark", (Spark) elevatorelevatorSpark);
