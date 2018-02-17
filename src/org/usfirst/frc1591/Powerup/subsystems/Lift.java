@@ -74,11 +74,11 @@ public class Lift extends Subsystem {
         else {
         	
 	    	//when A is pressed, the winch starts to spool in
-	    	if (Robot.oi.driveStick.getRawButton(1)) {
+	    	if (Robot.oi.driveStick.getRawButton(1) && (heightReachedLimit.get() == false)) {
 	    		liftTalon.set(1);//set to correct direction at full power PLACEHOLDER
 	    	}
 	    	//when the robot gets 12 in above the ground, stop the winch
-	    	if (heightReachedLimit.get() == false) {
+	    	else {
 	    		liftTalon.set(0);
 	    	}
     	
