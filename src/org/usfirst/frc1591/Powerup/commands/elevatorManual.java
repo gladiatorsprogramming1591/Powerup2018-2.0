@@ -49,23 +49,7 @@ public class elevatorManual extends Command {
     @Override
     protected void execute() {
     	
-    	//deciding which way to drive
-    	if (Robot.oi.elevatorStick.getRawButton(3) && rampDrive == true) {
-    		rampDrive = false;
-    		lowGearDrive = true;
-    	}
-    	else if (Robot.oi.elevatorStick.getRawButton(4) && lowGearDrive == true) {
-    		rampDrive = true;
-    		lowGearDrive = false;
-    	}
-    	
-    	//calling decided drive mode
-    	if (rampDrive == true) {
     		Robot.elevator.joystickElevator(Robot.oi.elevatorStick.getRawAxis(1));
-    	}
-    	if (lowGearDrive == true) {
-    		Robot.elevator.joystickElevator(Robot.oi.elevatorStick.getRawAxis(1) / 0.5);
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

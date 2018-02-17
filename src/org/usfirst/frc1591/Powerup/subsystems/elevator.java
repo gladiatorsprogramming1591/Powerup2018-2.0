@@ -115,8 +115,20 @@ public class elevator extends Subsystem {
     	}
     	//communicate to motor controller
     	//elevatorSpark.set(powerY);
-    	elevatorSpark.set(joystickY);
-    	
+    	if (elevatorUpperLimit.get() == true) {
+    		if (joystickY > 0) {
+    			elevatorSpark.set(joystickY * 0.7);
+    		}
+    		if (joystickY < 0) {
+    			elevatorSpark.set(joystickY * 0.5);
+    		}
+    	}
+    	else if (elevatorUpperLimit.get() == false && joystickY > 0){
+    		elevatorSpark.set(joystickY * .5);
+    	}
+    	else {
+    		elevatorSpark.set(0);
+    	}
     	//put variables on shuffleboard
     	SmartDashboard.putNumber("Ramp", ramp);
     	SmartDashboard.putNumber("powerY", powerY);

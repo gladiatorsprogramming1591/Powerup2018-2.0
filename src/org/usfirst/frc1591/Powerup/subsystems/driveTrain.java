@@ -119,7 +119,7 @@ public class driveTrain extends Subsystem {
     	}
     	//communicate to motor controller
     	
-    	robotDrive.arcadeDrive(joystickX, joystickY);
+    	robotDrive.arcadeDrive(joystickX/2.25, powerY);
     	
     	//put variables on shuffleboard
     	SmartDashboard.putNumber("Ramp", ramp);

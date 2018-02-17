@@ -58,7 +58,7 @@ public class claw extends Subsystem {
 //    	}
 //    	else 
     	if(Robot.oi.elevatorStick.getRawButton(6)) {
-    		operateClaw(-0.8);
+    		operateClaw(-1);
     	}
     	else {
     		operateClaw(0);

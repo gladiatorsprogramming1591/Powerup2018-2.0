@@ -34,11 +34,14 @@ public class RobotMap {
     public static WPI_TalonSRX driveTrainrightTalon;
     public static RobotDrive driveTrainrobotDrive;
     public static WPI_TalonSRX liftliftTalon;
-    public static DigitalInput lifthightReachedLimit;
-    public static SpeedController clampclampSpark;
-    public static DigitalInput clampclampOpenLimit;
-    public static DigitalInput clampclampClosedLimit;
+    public static DigitalInput liftheightReachedLimit;
+    public static DigitalInput liftreverseEnabledLimit;
+    public static SpeedController clawclawSpark;
+    public static DigitalInput clawclawOpenLimit;
+    public static DigitalInput clawclawClosedLimit;
     public static SpeedController elevatorelevatorSpark;
+    public static DigitalInput elevatorelevatorUpperLimit;
+    public static DigitalInput elevatorelevatorLowerLimit;
     public static Ultrasonic sensorssonicLeft;
     public static Ultrasonic sensorssonicRight;
 
@@ -58,26 +61,34 @@ public class RobotMap {
         driveTrainrobotDrive.setExpiration(0.1);
         driveTrainrobotDrive.setSensitivity(0.5);
         driveTrainrobotDrive.setMaxOutput(1.0);
-
-        driveTrainrobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        driveTrainrobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
         liftliftTalon = new WPI_TalonSRX(3);
         
         
-        lifthightReachedLimit = new DigitalInput(0);
-        LiveWindow.addSensor("Lift", "hightReachedLimit", lifthightReachedLimit);
+        liftheightReachedLimit = new DigitalInput(0);
+        LiveWindow.addSensor("Lift", "heightReachedLimit", liftheightReachedLimit);
         
-        clampclampSpark = new Spark(1);
-        LiveWindow.addActuator("clamp", "clampSpark", (Spark) clampclampSpark);
-        clampclampSpark.setInverted(false);
-        clampclampOpenLimit = new DigitalInput(1);
-        LiveWindow.addSensor("clamp", "clampOpenLimit", clampclampOpenLimit);
+        liftreverseEnabledLimit = new DigitalInput(9);
+        LiveWindow.addSensor("Lift", "reverseEnabledLimit", liftreverseEnabledLimit);
         
-        clampclampClosedLimit = new DigitalInput(2);
-        LiveWindow.addSensor("clamp", "clampClosedLimit", clampclampClosedLimit);
+        clawclawSpark = new Spark(1);
+        LiveWindow.addActuator("claw", "clawSpark", (Spark) clawclawSpark);
+        clawclawSpark.setInverted(false);
+        clawclawOpenLimit = new DigitalInput(1);
+        LiveWindow.addSensor("claw", "clawOpenLimit", clawclawOpenLimit);
         
-        elevatorelevatorSpark = new Spark(2);
+        clawclawClosedLimit = new DigitalInput(2);
+        LiveWindow.addSensor("claw", "clawClosedLimit", clawclawClosedLimit);
+        
+        elevatorelevatorSpark = new Spark(0);
         LiveWindow.addActuator("elevator", "elevatorSpark", (Spark) elevatorelevatorSpark);
         elevatorelevatorSpark.setInverted(false);
+        elevatorelevatorUpperLimit = new DigitalInput(3);
+        LiveWindow.addSensor("elevator", "elevatorUpperLimit", elevatorelevatorUpperLimit);
+        
+        elevatorelevatorLowerLimit = new DigitalInput(4);
+        LiveWindow.addSensor("elevator", "elevatorLowerLimit", elevatorelevatorLowerLimit);
+        
         sensorssonicLeft = new Ultrasonic(5, 6);
         LiveWindow.addSensor("sensors", "sonicLeft", sensorssonicLeft);
         
