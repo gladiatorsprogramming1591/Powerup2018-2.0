@@ -62,10 +62,10 @@ public class driveManual extends Command {
     	
     	//calling decided drive mode
     	if (rampDrive == true) {
-    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0), Robot.oi.driveStick.getRawAxis(1));
+    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 1.5, Robot.oi.driveStick.getRawAxis(1));
     	}
     	if (lowGearDrive == true) {
-    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 2, Robot.oi.driveStick.getRawAxis(1) / 2);
+    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 2, Robot.oi.driveStick.getRawAxis(1) / 1.5);
     	}
     	
     	

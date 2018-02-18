@@ -38,20 +38,19 @@ public class clawClose extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-//    	setTimeout(1);
+    	setTimeout(1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	Robot.claw.operateClaw(-1);
+    	Robot.claw.operateClaw(0.7);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-    	return false;
-//        return isTimedOut();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

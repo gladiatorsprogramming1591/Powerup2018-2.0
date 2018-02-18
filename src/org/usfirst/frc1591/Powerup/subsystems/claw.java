@@ -53,16 +53,16 @@ public class claw extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-//    	if (Robo t.oi.elevatorStick.getRawButton(5)) {
+//    	if (Robot.oi.elevatorStick.getRawButton(5)) {
 //    		operateClaw(0.8);
 //    	}
 //    	else 
-    	if(Robot.oi.elevatorStick.getRawButton(6)) {
-    		operateClaw(-1);
-    	}
-    	else {
-    		operateClaw(0);
-    	}
+//    	if(Robot.oi.elevatorStick.getRawButton(6)) {
+//    		operateClaw(-1);
+//    	}
+//    	else {
+//    		operateClaw(0);
+//    	}
     }
 
     public void operateClaw(double speed) {

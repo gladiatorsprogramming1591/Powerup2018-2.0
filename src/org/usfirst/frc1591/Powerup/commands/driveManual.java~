@@ -65,7 +65,7 @@ public class driveManual extends Command {
     		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0), Robot.oi.driveStick.getRawAxis(1));
     	}
     	if (lowGearDrive == true) {
-    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 0.5, Robot.oi.driveStick.getRawAxis(1) / 0.5);
+    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 2, Robot.oi.driveStick.getRawAxis(1) / 2);
     	}
     	
     	

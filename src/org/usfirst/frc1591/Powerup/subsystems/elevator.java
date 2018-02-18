@@ -115,16 +115,19 @@ public class elevator extends Subsystem {
     	}
     	//communicate to motor controller
     	//elevatorSpark.set(powerY);
-    	if (elevatorUpperLimit.get() == true) {
-    		if (joystickY > 0) {
-    			elevatorSpark.set(joystickY * 0.7);
+    	if (elevatorUpperLimit.get() == true) {  // Below upper limit
+    		if ((joystickY > 0 ) && (elevatorLowerLimit.get() == true)) { // Between limits going down (y inverted)
+    			elevatorSpark.set(joystickY * 0.8);
     		}
-    		if (joystickY < 0) {
-    			elevatorSpark.set(joystickY * 0.5);
+    		else if (joystickY < 0) {  // Below upper limit going up
+    			elevatorSpark.set(joystickY * 0.8);
+    		}
+    		else {
+    			elevatorSpark.set(0);
     		}
     	}
-    	else if (elevatorUpperLimit.get() == false && joystickY > 0){
-    		elevatorSpark.set(joystickY * .5);
+    	else if ( joystickY > 0){  // Above/at upper limit going down
+    		elevatorSpark.set(joystickY * .8);
     	}
     	else {
     		elevatorSpark.set(0);
