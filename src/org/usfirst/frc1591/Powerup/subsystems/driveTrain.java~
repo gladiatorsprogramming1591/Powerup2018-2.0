@@ -47,7 +47,7 @@ public class driveTrain extends Subsystem {
     
     public driveTrain() {
     	powerY = 0;
-    	rampSpeed = 1.0;
+    	rampSpeed = 0.5;
     	lastTimeDriveTrainUpdated = System.currentTimeMillis();
     	numIter = 0;
     	//Sets the ramp for the talons with 10 milisecond timeout
@@ -119,7 +119,7 @@ public class driveTrain extends Subsystem {
     	}
     	//communicate to motor controller
     	
-    	robotDrive.arcadeDrive(joystickX/2.25, powerY);
+    	robotDrive.arcadeDrive(joystickX, joystickY);
     	
     	//put variables on shuffleboard
     	SmartDashboard.putNumber("Ramp", ramp);

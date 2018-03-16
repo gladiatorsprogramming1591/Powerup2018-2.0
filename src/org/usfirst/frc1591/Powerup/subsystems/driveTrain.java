@@ -47,14 +47,14 @@ public class driveTrain extends Subsystem {
     
     public driveTrain() {
     	powerY = 0;
-    	rampSpeed = 1.0;
+    	rampSpeed = 0.5;
     	lastTimeDriveTrainUpdated = System.currentTimeMillis();
     	numIter = 0;
     	//Sets the ramp for the talons with 10 milisecond timeout
-    	leftTalon.configOpenloopRamp(rampSpeed, 1);
-    	rightTalon.configOpenloopRamp(rampSpeed, 1);
-      	leftTalon.configClosedloopRamp(rampSpeed, 1);
-    	rightTalon.configClosedloopRamp(rampSpeed, 1);
+    	leftTalon.configOpenloopRamp(rampSpeed, 10);
+    	rightTalon.configOpenloopRamp(rampSpeed, 10);
+      	leftTalon.configClosedloopRamp(rampSpeed, 10);
+    	rightTalon.configClosedloopRamp(rampSpeed, 10);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class driveTrain extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-    	SmartDashboard.putNumber("PowerY", powerY);
+//    	SmartDashboard.putNumber("PowerY", powerY);
     }
 
     // Put methods for controlling this subsystem
@@ -122,8 +122,8 @@ public class driveTrain extends Subsystem {
     	robotDrive.arcadeDrive(joystickX, joystickY);
     	
     	//put variables on shuffleboard
-    	SmartDashboard.putNumber("Ramp", ramp);
-    	SmartDashboard.putNumber("powerY", powerY);
+//    	SmartDashboard.putNumber("Ramp", ramp);
+//    	SmartDashboard.putNumber("powerY", powerY);
     
 //    	if ((numIter++ % 20) == 0) {
 //    		System.out.println("Ramp " + ramp);

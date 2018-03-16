@@ -72,8 +72,8 @@ public class elevator extends Subsystem {
    
     public void joystickElevator(double joystickY) {
     	
-    	SmartDashboard.putData("elevatorUpperLimit", elevatorUpperLimit);
-        SmartDashboard.putData("elevatorLowerLimit", elevatorLowerLimit);
+//    	SmartDashboard.putData("elevatorUpperLimit", elevatorUpperLimit);
+//        SmartDashboard.putData("elevatorLowerLimit", elevatorLowerLimit);
     	
 //    	//Checking limit switches
 //        if ((elevatorUpperLimit.get()==true) && (joystickY > 0)) {
@@ -115,33 +115,34 @@ public class elevator extends Subsystem {
     	}
     	//communicate to motor controller
     	//elevatorSpark.set(powerY);
-    	if (elevatorUpperLimit.get() == true) {  // Below upper limit
+    	if (elevatorUpperLimit.get() == true || Robot.oi.elevatorStick.getRawButton(2)) {  // Below upper limit or bypass button pressed
     		if ((joystickY > 0 ) && (elevatorLowerLimit.get() == true)) { // Between limits going down (y inverted)
-    			elevatorSpark.set(joystickY * 0.8);
+    			elevatorSpark.set(joystickY * 0.7);
     		}
     		else if (joystickY < 0) {  // Below upper limit going up
-    			elevatorSpark.set(joystickY * 0.8);
+    			elevatorSpark.set(joystickY * 1.0);
     		}
     		else {
     			elevatorSpark.set(0);
     		}
     	}
     	else if ( joystickY > 0){  // Above/at upper limit going down
-    		elevatorSpark.set(joystickY * .8);
+    		
+    		elevatorSpark.set(joystickY * .7);
     	}
     	else {
     		elevatorSpark.set(0);
     	}
     	//put variables on shuffleboard
-    	SmartDashboard.putNumber("Ramp", ramp);
-    	SmartDashboard.putNumber("powerY", powerY);
+//    	SmartDashboard.putNumber("Ramp", ramp);
+//    	SmartDashboard.putNumber("powerY", powerY);
     
-    	if ((numIter++ % 20) == 0) {
-    		System.out.println("elevatorRamp " + ramp);
-    		System.out.println("elevatorPowerY" + powerY);
-    		System.out.println("elevatorDeltaTime" + deltaTimeSec);
-    		System.out.println("joystickY" + joystickY);
-    	}
+//    	if ((numIter++ % 20) == 0) {
+//    		System.out.println("elevatorRamp " + ramp);
+//    		System.out.println("elevatorPowerY" + powerY);
+//    		System.out.println("elevatorDeltaTime" + deltaTimeSec);
+//    		System.out.println("joystickY" + joystickY);
+//    	}
     }
 
     

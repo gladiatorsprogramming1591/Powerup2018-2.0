@@ -60,12 +60,18 @@ public class driveManual extends Command {
     		lowGearDrive = false;
     	}
     	
+    	//drive scaling constants
+    	final double rampDriveLinearScale = 1.0;
+    	final double rampDriveTurningScale = 1.5; 
+    	final double lowGearDriveLinearScale = 1.5; 
+    	final double lowGearDriveTurningScale = 1.5; 
+    	
     	//calling decided drive mode
     	if (rampDrive == true) {
-    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0), Robot.oi.driveStick.getRawAxis(1));
+    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / rampDriveTurningScale, Robot.oi.driveStick.getRawAxis(1) / rampDriveLinearScale);
     	}
     	if (lowGearDrive == true) {
-    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / 2, Robot.oi.driveStick.getRawAxis(1) / 2);
+    		Robot.driveTrain.drive(Robot.oi.driveStick.getRawAxis(0) / lowGearDriveTurningScale, Robot.oi.driveStick.getRawAxis(1) / lowGearDriveLinearScale);
     	}
     	
     	

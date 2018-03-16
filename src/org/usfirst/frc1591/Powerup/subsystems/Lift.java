@@ -65,17 +65,14 @@ public class Lift extends Subsystem {
     //make the winch spool in to pull the robot up
     public void spoolIn() {
     	
-        SmartDashboard.putData("heightReachedLimit", heightReachedLimit);
-    	
-        //false is on
+//        SmartDashboard.putData("heightReachedLimit", heightReachedLimit);
+    	//false is on
         if (reverseEnabledLimit.get() == false) {
         	liftTalon.set(1);
         }
-        
         else {
-        	
-	    	//when A is pressed, the winch starts to spool in
-	    	if (Robot.oi.driveStick.getRawButton(1) && (heightReachedLimit.get() == true)) {
+        	//when A is pressed, the winch starts to spool in
+	    	if (Robot.oi.elevatorStick.getRawButton(1) && (heightReachedLimit.get() == true)) {
 	    		liftTalon.set(-1);//set to correct direction at full power PLACEHOLDER
 	    	}
 	    	//when the robot gets 12 in above the ground, stop the winch
